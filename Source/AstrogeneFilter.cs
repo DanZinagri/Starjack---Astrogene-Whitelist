@@ -25,8 +25,6 @@ namespace StarjackAstrogeneWhitelist
         public bool inDefault;
         // Starjack's own criteria accept this gene. False for genes that are only here because a list names them.
         public bool starjackPick;
-        // Whether its astrogene was built this session.
-        public bool applied;
     }
 
     // Starjack builds an astrogene for every gene that fits its criteria, inside its own postfix on
@@ -96,7 +94,7 @@ namespace StarjackAstrogeneWhitelist
                     list.RemoveAt(i);
                     StaticCollections.allAstrogenes.Remove(astrogene);
                 }
-                candidates.Add(new Candidate { gene = source, inDefault = inDefault, starjackPick = true, applied = enabled });
+                candidates.Add(new Candidate { gene = source, inDefault = inDefault, starjackPick = true });
             }
 
             // Listed genes Starjack would not pick itself (wrong metabolism, archite, ...): built with Starjack's builder.
@@ -113,13 +111,11 @@ namespace StarjackAstrogeneWhitelist
                     continue;
                 }
                 bool inDefault = defaults.Contains(name);
-                bool applied = false;
                 if (settings.Enabled(name, inDefault))
                 {
                     if (MakeAstrogene != null)
                     {
                         list.Add(MakeAstrogene(source));
-                        applied = true;
                         enabledCount++;
                     }
                     else
@@ -127,7 +123,7 @@ namespace StarjackAstrogeneWhitelist
                         builderMissing = true;
                     }
                 }
-                candidates.Add(new Candidate { gene = source, inDefault = inDefault, starjackPick = false, applied = applied });
+                candidates.Add(new Candidate { gene = source, inDefault = inDefault, starjackPick = false });
             }
 
             if (builderMissing)

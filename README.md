@@ -18,7 +18,7 @@ replace it. Genes that are not loaded are skipped.
 **Settings.** Options > Mod settings lists every gene Starjack could build plus everything on a default list, with its
 icon, a search box (name, defName or mod), a Show all/enabled/disabled switch, and Enable shown / Disable shown / Reset to
 defaults. Only departures from the defaults are saved, so later changes to a default list still apply. Astrogenes are
-created while the game loads, so changes need a restart; closing the settings with pending changes offers one. Pawns in
+created while the game loads, so changes need a restart; a note at the top of the menu says so. Pawns in
 an existing save lose any astrogene that is switched off.
 
 | Path | Contents |

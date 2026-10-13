@@ -79,7 +79,6 @@ namespace StarjackAstrogeneWhitelist
         // Recounted only when a tick box changes.
         private bool countsDirty = true;
         private int enabledCount;
-        private int pendingCount;
 
         public WhitelistMod(ModContentPack content) : base(content)
         {
@@ -159,17 +158,11 @@ namespace StarjackAstrogeneWhitelist
         {
             countsDirty = false;
             enabledCount = 0;
-            pendingCount = 0;
             foreach (Row row in rows)
             {
-                bool enabled = IsEnabled(row.candidate);
-                if (enabled)
+                if (IsEnabled(row.candidate))
                 {
                     enabledCount++;
-                }
-                if (enabled != row.candidate.applied)
-                {
-                    pendingCount++;
                 }
             }
         }
@@ -191,18 +184,11 @@ namespace StarjackAstrogeneWhitelist
 
             Text.Font = GameFont.Small;
             Rect header = new Rect(inRect.x, inRect.y, inRect.width, 66f);
-            Widgets.Label(header, "Ticked genes get an astrogene version that Starjacks can be born with. Unticked ones are not created at all.\n"
-                + "Changes only take effect after restarting the game. Pawns in an existing save lose any astrogene you untick.");
-            Rect status = new Rect(inRect.x, header.yMax - 22f, inRect.width, 22f);
-            Widgets.Label(status, enabledCount + " of " + rows.Count + " enabled.");
-            if (pendingCount > 0)
-            {
-                GUI.color = Color.yellow;
-                Text.Anchor = TextAnchor.UpperRight;
-                Widgets.Label(status, pendingCount + (pendingCount == 1 ? " change needs" : " changes need") + " a restart to apply.");
-                Text.Anchor = TextAnchor.UpperLeft;
-                GUI.color = Color.white;
-            }
+            GUI.color = Color.yellow;
+            Widgets.Label(new Rect(header.x, header.y, header.width, 22f), "Requires restart: changes here only take effect the next time the game starts.");
+            GUI.color = Color.white;
+            Widgets.Label(new Rect(header.x, header.y + 22f, header.width, 22f), "Ticked genes get an astrogene version that Starjacks can be born with. Pawns in an existing save lose any astrogene you untick.");
+            Widgets.Label(new Rect(header.x, header.y + 44f, header.width, 22f), enabledCount + " of " + rows.Count + " enabled.");
 
             Rect bar = new Rect(inRect.x, header.yMax + 4f, inRect.width, 28f);
             search = Widgets.TextField(new Rect(bar.x, bar.y, 220f, bar.height), search);
@@ -271,22 +257,6 @@ namespace StarjackAstrogeneWhitelist
                 }
             }
             Widgets.EndScrollView();
-        }
-
-        public override void WriteSettings()
-        {
-            base.WriteSettings();
-            if (rows == null)
-            {
-                return;
-            }
-            Recount();
-            if (pendingCount > 0)
-            {
-                Find.WindowStack.Add(new Dialog_MessageBox(
-                    "Your astrogene changes take effect the next time the game starts.",
-                    "Restart now", GenCommandLine.Restart, "Later"));
-            }
         }
     }
 }
