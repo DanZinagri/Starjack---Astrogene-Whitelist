@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--
+		The default astrogene selection. Genes listed here get an astrogene unless the player unticks them in the mod
+		settings; every other gene Starjack could build is left off until the player ticks it.
+		- Entries are gene defNames. A gene that is not loaded is skipped, and MayRequire works on each entry.
+		- Entries are not held to Starjack's own criteria (metabolism -1 to -5, complexity 2 or less, no archite, ...),
+		  so a list can name genes Starjack would never pick by itself.
+		- To extend the defaults, add another AstrogeneWhitelistDef: all loaded lists are merged. To change or replace
+		  them, patch this def.
+		The list is Too Many Mods' original and has not been checked against current gene mods.
+	-->
+	<StarjackAstrogeneWhitelist.AstrogeneWhitelistDef>
+		<defName>StarjackAstrogeneWhitelist_Default</defName>
+		<genes>
+			<li>Robust</li>
+			<li>WoundHealing_SuperFast</li>
+			<li>Immunity_SuperStrong</li>
+			<li>ToxicEnvironmentResistance_Total</li>
+			<li>FireSpew</li>
+			<li>AcidSpray</li>
+			<li>PsychicAbility_Extreme</li>
+			<li>MoveSpeed_Quick</li>
+			<li>Beauty_Beautiful</li>
+			<li>Learning_Fast</li>
+			<li>Mood_Optimist</li>
+			<li>ToxResist_Total</li>
+			<li>Pain_Reduced</li>
+			<li>Aggression_DeadCalm</li>
+			<li>LowSleep</li>
+			<li>MeleeDamage_Strong</li>
+			<li>Libido_High</li>
+			<li>KindInstinct</li>
+			<li>StrongStomach</li>
+			<li>DarkVision</li>
+			<li>FireResistant</li>
+			<li>RobustDigestion</li>
+			<li>Unstoppable</li>
+			<li>Superclotting</li>
+			<li MayRequire="sarg.alphagenes">AG_InnerPeace</li>
+			<li MayRequire="sarg.alphagenes">AG_Zap</li>
+			<li MayRequire="sarg.alphagenes">AG_PetrifyingGaze</li>
+			<li MayRequire="sarg.alphagenes">AG_Detonation</li>
+			<li MayRequire="sarg.alphagenes">AG_AcidicDetonation</li>
+			<li MayRequire="sarg.alphagenes">AG_InsanityBlast</li>
+			<li MayRequire="sarg.alphagenes">AG_UnstableMind</li>
+			<li MayRequire="sarg.alphagenes">AG_DevourBrains</li>
+			<li MayRequire="sarg.alphagenes">AG_PsychicAbsorption</li>
+			<li MayRequire="sarg.alphagenes">AG_SterilizingBreath</li>
+			<li MayRequire="sarg.alphagenes">AG_BansheeScream</li>
+			<li MayRequire="sarg.alphagenes">AG_FreezingBreath</li>
+			<li MayRequire="sarg.alphagenes">AG_NoxiousBreath</li>
+			<li MayRequire="sarg.alphagenes">AG_VenomFangs</li>
+			<li MayRequire="sarg.alphagenes">AG_AcidFangs</li>
+			<li MayRequire="sarg.alphagenes">AG_ArmourMedium</li>
+			<li MayRequire="sarg.alphagenes">AG_EfficientMandibles</li>
+			<li MayRequire="sarg.alphagenes">AG_RegenerationMinor</li>
+			<li MayRequire="sarg.alphagenes">AG_LungRotStrength</li>
+			<li MayRequire="sarg.alphagenes">AG_HeatSpeed</li>
+			<li MayRequire="sarg.alphagenes">AG_ColdSpeed</li>
+			<li MayRequire="sarg.alphagenes">AG_HeatRadiating</li>
+			<li MayRequire="RedMattis.BigSmall.Core">BS_Unarmed_VeryStrong</li>
+			<li MayRequire="RedMattis.BigSmall.Core">BS_Pain_None</li>
+			<li MayRequire="RedMattis.BigSmall.Core">BS_FoamSpray</li>
+			<li MayRequire="RedMattis.BigSmall.Core">BS_Concussive_Resistance</li>
+			<li MayRequire="RedMattis.BigSmall.Core">BS_AcidResistanceMid</li>
+			<li MayRequire="RedMattis.BigSmall.Core">VU_Lesser_Unliving_Resilience</li>
+			<li MayRequire="RedMattis.BigSmall.Core">BS_SlimeAttack</li>
+			<li MayRequire="RedMattis.BigSmall.Core">LoS_VenomTalons</li>
+			<li MayRequire="RedMattis.BigSmall.Core">BS_Very_Passioned_Learning_Gene</li>
+			<li MayRequire="biotexpans.mammalia">BTE_FeralMight</li>
+			<li MayRequire="det.keshig">DV_DodgeChance_High</li>
+			<li MayRequire="det.stoneborn">DV_ExtendedMemory</li>
+			<li MayRequire="det.venators">DV_ParalyzingFangs</li>
+			<li MayRequire="det.venators">DV_Farsighted</li>
+			<li MayRequire="Sov.Tenmo">GS_Cloak_Glands</li>
+			<li MayRequire="Sov.Tenmo">GS_Electroreception</li>
+			<li MayRequire="ElSov.Highborn">HBX_Fencer</li>
+			<li MayRequire="Rimsenal.Askbarn">EMPRoar</li>
+			<li MayRequire="Rimsenal.Harana">AgileStriker</li>
+			<li MayRequire="Rimsenal.Zohar">Gene_StrongWilled</li>
+			<li MayRequire="vanillaracesexpanded.fungoid">VRE_MinorSkillLoss</li>
+			<li MayRequire="vanillaracesexpanded.hussar">VREH_Dutiful</li>
+			<li MayRequire="vanillaracesexpanded.archon">VRE_FastShooter</li>
+			<li MayRequire="vanillaracesexpanded.archon">VRE_FastMeleeHitter</li>
+			<li MayRequire="vanillaracesexpanded.archon">VRE_SwiftMeditation</li>
+			<li MayRequire="vanillaracesexpanded.archon">VRE_HighEntropyCapacity</li>
+			<li MayRequire="vanillaracesexpanded.pigskin">VRE_Brave</li>
+			<!-- WVC - Xenotypes and Genes (was TMM_WVC's VanillaRacesExpandedStarjack.xml, also default off) -->
+			<li MayRequire="wvc.sergkart.races.biotech">WVC_NaturalTelepathy</li>
+			<li MayRequire="wvc.sergkart.races.biotech,vanillaquestsexpanded.ancients">WVC_Wings_Levitation</li>
+			<li MayRequire="wvc.sergkart.races.biotech">WVC_FurskinInstincts_PredatorSense</li>
+			<li MayRequire="wvc.sergkart.races.biotech">WVC_FurskinInstincts_NightHunter</li>
+			<li MayRequire="wvc.sergkart.races.biotech">WVC_SilentHunter</li>
+		</genes>
+	</StarjackAstrogeneWhitelist.AstrogeneWhitelistDef>
+
+</Defs>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Starjack - Astrogene Whitelist</name>
+	<author>DanZinagri</author>
+	<packageId>DanZinagri.Starjack.AstrogeneWhitelist</packageId>
+	<supportedVersions>
+		<li>1.7</li>
+	</supportedVersions>
+	<description>Choose which genes Vanilla Races Expanded - Starjack turns into astrogenes.
+
+Starjack makes a free astrogene copy of every loaded gene that fits its criteria, which with a lot of gene mods means hundreds of them. With this mod only a curated default list is created. Everything else Starjack could build is listed in the mod settings, switched off, with a search box and a tick box per gene, so you can turn on exactly the ones you want (or turn off defaults you do not).
+
+Changes apply after a restart, because astrogenes are created while the game loads. Pawns in an existing save lose any astrogene you switch off.
+
+The default list is an XML def (StarjackAstrogeneWhitelist.AstrogeneWhitelistDef), so other mods can add their own list or patch this one.
+
+Originally part of Too Many Mods - Compats and Rebalances by Warachia.</description>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2009463077</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>vanillaracesexpanded.starjack</packageId>
+			<displayName>Vanilla Races Expanded - Starjack</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3531912428</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>brrainz.harmony</li>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+		<li>vanillaracesexpanded.starjack</li>
+	</loadAfter>
+</ModMetaData>
