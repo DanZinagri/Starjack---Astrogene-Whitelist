@@ -4,6 +4,7 @@
 	<author>DanZinagri</author>
 	<packageId>DanZinagri.Starjack.AstrogeneWhitelist</packageId>
 	<supportedVersions>
+		<li>1.6</li>
 		<li>1.7</li>
 	</supportedVersions>
 	<description>Choose which genes Vanilla Races Expanded - Starjack turns into astrogenes.

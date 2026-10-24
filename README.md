@@ -1,6 +1,6 @@
 # Starjack - Astrogene Whitelist
 
-Choose which genes Vanilla Races Expanded - Starjack turns into astrogenes. RimWorld 1.7 only.
+Choose which genes Vanilla Races Expanded - Starjack turns into astrogenes. RimWorld 1.6 and 1.7.
 
 **Upstream behaviour.** VRE - Starjack postfixes the vanilla implied-gene generator and clones a free `<gene>_Astrogene`
 for every loaded gene with metabolism -1 to -5, complexity at most 2, no archite, no prerequisite, not extraction-disabled
@@ -11,7 +11,7 @@ from the generated defs and from Starjack's own pool. A gene is enabled when it 
 it, and the player has not unticked it. Listed genes that Starjack's criteria reject are built with Starjack's own
 (private) astrogene builder, so nothing of Starjack's is reimplemented here.
 
-**Default lists.** `1.7/Defs/AstrogeneWhitelist.xml` holds a `StarjackAstrogeneWhitelist.AstrogeneWhitelistDef` with gene
+**Default lists.** `Common/Defs/AstrogeneWhitelist.xml` holds a `StarjackAstrogeneWhitelist.AstrogeneWhitelistDef` with gene
 defNames. All loaded defs of that type are merged, so another mod can add its own list; patch the def to change or
 replace it. Genes that are not loaded are skipped.
 
@@ -23,12 +23,14 @@ an existing save lose any astrogene that is switched off.
 
 | Path | Contents |
 |---|---|
-| `1.7/Assemblies/StarjackAstrogeneWhitelist.dll` | net10.0 build |
-| `1.7/Defs/AstrogeneWhitelist.xml` | the default list (Too Many Mods' original, about 75 genes; not yet checked against current gene mods) |
+| `1.6/Assemblies/StarjackAstrogeneWhitelist.dll` | net48 build, against the 1.6 reference assemblies |
+| `1.7/Assemblies/StarjackAstrogeneWhitelist.dll` | net10.0 build, against the 1.7 game |
+| `Common/Defs/AstrogeneWhitelist.xml` | the default list, loaded on both versions (Too Many Mods' original, about 75 genes; not yet checked against current gene mods) |
 | `Source/` | `AstrogeneFilter.cs` (def, filter patch), `WhitelistMod.cs` (settings and menu). Not deployed. |
 
-**Build.** `dotnet build -c Release` in `Source`. VRE - Starjack has no 1.7 build yet, so the csproj references its 1.6
-DLL; repoint and rebuild once it ships.
+**Build.** `dotnet build -c Release` in `Source` builds both DLLs. VRE - Starjack ships a single build (its loadFolders
+loads its 1.6 folder on 1.7 too), so both targets reference that DLL; repoint the 1.7 target if Starjack ever ships a
+separate 1.7 build.
 
 **Origin.** Split out of Too Many Mods - Compats and Rebalances by Warachia, where a Harmony prefix replaced Starjack's
 generator with a fixed whitelist behind a setting that shipped off. Rewritten 2026-10-13 as a filter with a settings menu.
